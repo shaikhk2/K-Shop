@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_11_195124) do
+ActiveRecord::Schema.define(version: 2023_01_12_174619) do
 
   create_table "cart_items", force: :cascade do |t|
     t.string "name"
+    t.integer "quantity"
     t.integer "cart_id", null: false
     t.integer "item_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -24,6 +25,14 @@ ActiveRecord::Schema.define(version: 2023_01_11_195124) do
 
   create_table "carts", force: :cascade do |t|
     t.string "name"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -33,8 +42,12 @@ ActiveRecord::Schema.define(version: 2023_01_11_195124) do
     t.string "price"
     t.string "description"
     t.string "image"
+    t.string "color"
+    t.string "size"
+    t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_items_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,4 +63,6 @@ ActiveRecord::Schema.define(version: 2023_01_11_195124) do
 
   add_foreign_key "cart_items", "carts"
   add_foreign_key "cart_items", "items"
+  add_foreign_key "carts", "users"
+  add_foreign_key "items", "categories"
 end
