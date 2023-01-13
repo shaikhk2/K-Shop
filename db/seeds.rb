@@ -6,10 +6,6 @@ Category.destroy_all
 User.destroy_all
 
 
-
-
-
-
 puts "Creating users..."
 #Users
 user1 = User.create( 

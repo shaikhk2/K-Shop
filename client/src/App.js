@@ -42,7 +42,7 @@ function App() {
       <>
       <Login onLogin={handleLogin} setCurrentUser={setCurrentUser} error={'Please login'} />
       <br/><br/>
-      <Signup currentCustomer={currentUser} setCurrentCustomer={setCurrentUser}  error={'Please login'} />
+      <Signup currentCustomer={currentUser} setCurrentUser={setCurrentUser}  error={'Please login'} />
       </>
       : 
       <Switch>
