@@ -1,7 +1,4 @@
-function Login() {
-
-
-
+function Profile() {
 
     return (
         <div>
@@ -10,4 +7,4 @@ function Login() {
     )
 }
 
-export default Login;
+export default Profile;
