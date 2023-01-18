@@ -8,6 +8,8 @@ class SessionsController < ApplicationController
     
         if user&.authenticate(params[:password])
             session[:user_id] = user.id
+            # user_token = encode_token({user_id: user.id})
+            # render json: {user: user, token: user_token}
             render json: user, status: :ok
         else
             render json: {errors: 'Invalid Password or Username'}, status: :unauthorized

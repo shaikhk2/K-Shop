@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { useState, useEffect, useReducer } from 'react';
+import { Switch, Route, useRoutes } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import './App.css';
 // import PantContainer from './PantContainer';
 // import DressContainer from './DressContainer';
@@ -18,11 +19,13 @@ function App() {
   const [users, setUsers] = useState([])
   const [items, setItems] = useState([])
   const [currentUser, setCurrentUser] = useState(null)
+  const [cart, setCart] = useState([])
+  // const history = useHistory()
+
 
   useEffect(() => {
 
     fetch("/items")
-    
     .then(r => r.json())
     .then(data => setItems(data))
   }, [])
@@ -35,6 +38,45 @@ function App() {
     setUsers();
   }
 
+  function AddToCart(item, user) {
+    // fetch("/carts")
+    // const newArray = [ ...cart, item ]
+    // setCart(newArray);
+    // e.preventDefault();
+          // Logs in user
+      fetch("/cart_items", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ 
+          item_id:item.id,
+          user_id:currentUser.id 
+        }),
+      })
+      .then(r => r.json())
+      .then(data => {
+        setCart([...cart, data])
+        console.log(data)
+      })
+      .catch(err => console.log(err))
+    //   .then((r) => {
+    //     if (r.ok) {
+    //       // r.json().then((customer) => onLogin(customer));
+    //       r.json().then(item => {
+    //         setCart(item)
+    //         history.push("/carts")
+    //       })
+    //     }
+    // });
+    // console.log(item)
+  }
+  console.log(cart)
+  // function ShowCart() {
+    
+  // }
+
+
   return (
     <div className="App">
       <Header onLogin={handleLogin} setCurrentUser={setCurrentUser} />
@@ -42,7 +84,7 @@ function App() {
       <>
       <Login onLogin={handleLogin} setCurrentUser={setCurrentUser} error={'Please login'} />
       <br/><br/>
-      <Signup currentCustomer={currentUser} setCurrentUser={setCurrentUser}  error={'Please login'} />
+      <Signup currentUser={currentUser} setCurrentUser={setCurrentUser}  error={'Please login'} />
       </>
       : 
       <Switch>
@@ -56,31 +98,16 @@ function App() {
           <Home />
         </Route>
         <Route path="/items">
-          <ItemContainer items={items}/>
+          <ItemContainer  user={users} items={ items } AddToCart={ AddToCart } />
         </Route>
-        {/* <Route path="/shirts">
-          <ShirtContainer  shirts={shirts}/>
-        </Route>
-        <Route path="/pants">
-          <PantContainer />
-        </Route>
-        <Route path="/dresses">
-          <DressContainer />
-        </Route>
-        <Route path="/gowns">
-          <GownContainer />
-        </Route>
-        <Route path="/suits">
-          <SuitContainer />
-        </Route> */}
         <Route path="/item/:id">
           <ShowContainer />
         </Route>
-        <Route path="/cart">
-          <CartContainer />
+        <Route path="/carts">
+          <CartContainer cart={ cart } />
         </Route>
         <Route path="/profile">
-          <Profile />
+          <Profile currentUser={ currentUser }/>
         </Route>
       </Switch>
       }

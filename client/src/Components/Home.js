@@ -5,7 +5,7 @@ function Home() {
 
     return (
         <div>
-        
+            <h2> WELCOME TO THE K-SHOP </h2>
         </div>
     )
 }

@@ -3,8 +3,8 @@ import { useHistory } from 'react-router-dom';
 function Login( { onLogin, setCurrentUser } ) {
 
     const [formData, setFormData] = useState({
-        username: '',
-        password: ''
+        username: 'bobb1',
+        password: '1231'
     });
     console.log(formData)
     const {username, password} = formData

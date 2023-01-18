@@ -1,11 +1,17 @@
 import ItemCard from "../Components/ItemCard";
 
-function ItemContainer( { items }) {
+function ItemContainer( { user, items, AddToCart }) {
 
     return (
         <div>
-            {items.map((item) => <ItemCard
-            key={item.id} item={item}/>)}  
+            {items.map((item) => (
+            <ItemCard
+            key={item.id} 
+            item={item} 
+            AddToCart={ AddToCart }
+            user={ user }
+            />
+            ))}  
         </div>
     )
 }

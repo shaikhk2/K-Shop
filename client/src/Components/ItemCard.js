@@ -1,5 +1,5 @@
 
-function ItemCard({ item }) {
+function ItemCard({ user, item, AddToCart }) {
 
 
 
@@ -13,7 +13,7 @@ function ItemCard({ item }) {
             <p> <strong>Category: </strong>{item.category_name} </p>
             <p> {item.description} </p>
             <p> {item.size} </p>
-            
+            <button onClick={ () =>  AddToCart(item, user) }> Add to Cart </button>
         </div>
     )
 }
