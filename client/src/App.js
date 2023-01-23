@@ -1,6 +1,6 @@
-import { useState, useEffect, useReducer } from 'react';
-import { Switch, Route, useRoutes } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Switch, Route } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import './App.css';
 // import PantContainer from './PantContainer';
 // import DressContainer from './DressContainer';
@@ -13,37 +13,41 @@ import Signup from './Components/Signup';
 import Login from './Components/Login';
 import ShowContainer from './Containers/ShowContainer';
 import Header from './Components/Header';
+// import { useCookies } from 'react-cookie';
 
 function App() {
 
   const [users, setUsers] = useState([])
   const [items, setItems] = useState([])
   const [currentUser, setCurrentUser] = useState(null)
+  // console.log( "who is logged in?", currentUser )
   const [cart, setCart] = useState([])
-  // const history = useHistory()
-
-
+  // const [cookies, setCookie] = useCookies(['user']);
+  // console.log(items);
   useEffect(() => {
 
     fetch("/items")
-    .then(r => r.json())
-    .then(data => setItems(data))
-  }, [])
-
+    .then(r => {
+      if (r.ok) {
+        r.json().then(data => setItems(data))
+      }
+    })
+  }, [currentUser])
+   
   function handleLogin(user) {
     setUsers(user);
   }
+  useEffect( () => {
+    fetch("/persist")
+    .then( r => {
+      if(r.ok) {
+        r.json().then(user => 
+          setCurrentUser(user))
+      }
+    })
+  },[])
 
-  function handleLogout() {
-    setUsers();
-  }
-
-  function AddToCart(item, user) {
-    // fetch("/carts")
-    // const newArray = [ ...cart, item ]
-    // setCart(newArray);
-    // e.preventDefault();
-          // Logs in user
+  function AddToCart(item, currentUser) {
       fetch("/cart_items", {
         method: "POST",
         headers: {
@@ -55,27 +59,23 @@ function App() {
         }),
       })
       .then(r => r.json())
-      .then(data => {
-        setCart([...cart, data])
-        console.log(data)
+      .then(cartitem => {
+        setCart([...cart, cartitem])
+        // console.log(cartitem)
       })
       .catch(err => console.log(err))
-    //   .then((r) => {
-    //     if (r.ok) {
-    //       // r.json().then((customer) => onLogin(customer));
-    //       r.json().then(item => {
-    //         setCart(item)
-    //         history.push("/carts")
-    //       })
-    //     }
-    // });
-    // console.log(item)
   }
-  console.log(cart)
-  // function ShowCart() {
-    
-  // }
-
+  // console.log(cart)
+  
+  function deleteCartItem(doomedCartItem) {
+    fetch(`/cart_items/${doomedCartItem.id}`, {
+        method: "DELETE",
+    })
+    .then(() => {
+      const newCartItems = cart.filter((cartitem) => cartitem.id !== doomedCartItem.id);
+      setCart(newCartItems);
+    })
+  }
 
   return (
     <div className="App">
@@ -98,21 +98,25 @@ function App() {
           <Home />
         </Route>
         <Route path="/items">
-          <ItemContainer  user={users} items={ items } AddToCart={ AddToCart } />
+          <ItemContainer  user={currentUser} items={ items } AddToCart={ AddToCart } />
         </Route>
         <Route path="/item/:id">
           <ShowContainer />
         </Route>
         <Route path="/carts">
-          <CartContainer cart={ cart } />
+          <CartContainer handleDelete={ deleteCartItem } cart={ cart } />
         </Route>
         <Route path="/profile">
-          <Profile currentUser={ currentUser }/>
+          <Profile currentUser={ currentUser } setCurrentUser={setCurrentUser}/>
         </Route>
       </Switch>
       }
+      {/* { currentUser ? <Header /> : null} */}
     </div>
   );
 }
+
+// create a route for persist
+// fetch delete to cartitem(obvi)
 
 export default App;

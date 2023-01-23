@@ -3,10 +3,10 @@ import { useHistory } from 'react-router-dom';
 function Login( { onLogin, setCurrentUser } ) {
 
     const [formData, setFormData] = useState({
-        username: 'bobb1',
-        password: '1231'
+        username: '',
+        password: ''
     });
-    console.log(formData)
+    // console.log(formData)
     const {username, password} = formData
     const [errors, setErrors] = useState([])
     const history = useHistory()

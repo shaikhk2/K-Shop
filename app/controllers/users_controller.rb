@@ -1,23 +1,37 @@
 class UsersController < ApplicationController
 
+    skip_before_action :authorized_user, only: [:create]
+
     def create 
         user = User.create( user_params )
         
         if user.valid?
-            # token = encode_token({user_id: user.id})
             Cart.create!(user_id: user.id)
-                render json: user
-            # render json: {user: user, token: token}        
+            session[:user_id] = user.id
+            render json: user    
         else
             render json: { "errors": user.errors.full_messages }, status: :unprocessable_entity
         end
     end
 
-    # def persist
-    #     token = encode_token({user_id: user.id})
+    def login_check
+        render json: @user
+    end
 
-    #     render json: {user: user, token: token}
-    # end
+    def update
+        updated_user = User.find_by( id: params[:id])
+        # byebug
+        if updated_user
+            updated_user.update( user_params )
+            if updated_user.valid?
+                render json: updated_user
+            else 
+                render json: { "errors": updated_user.errors.full_messages }, status: :unprocessable_entity
+            end
+        else 
+           render json: { "error": "User not found" }, status: :not_found
+        end
+    end
 
     # def destroy
     #     user = User.find_by(id: params[:id])
@@ -27,7 +41,7 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.permit( :name, :username, :password, :email, :address, :phone )
+        params.permit( :name, :username, :email, :address, :phone )
     end
     # def cart_params
     #     params.permit( :name, user_id )

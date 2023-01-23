@@ -17,8 +17,31 @@ class CartItemsController < ApplicationController
         end
     end
 
-    private 
-    def cartitem_params
-        params.permit( :item_id, :user_id )
+    def show
+        showItem = CartItem.find_by(id: params[:id])
+        if showItem
+            render json: showItem
+        else 
+            render json: { "error": "No such item" }, status: 404
+        end
     end
+
+    def destroy
+
+        cartitem = CartItem.find_by( id: params[:id])
+        if cartitem 
+            cartitem.destroy
+            head :no_content
+        else 
+            render json: { "error": "Cartitem not found" }, status: 404
+        end
+    end
+    # def destroy
+    #         cartitem.delete :user_id
+    #         head :no_content
+    # end
+    private 
+    # def cartitem_params
+    #     params.permit( :item_id, :user_id )
+    # end
 end

@@ -1,5 +1,8 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :username, :password, :email, :address, :phone
+  attributes :id, :name, :username, :password, :email, :address, :phone, :cart
 
-  has_one :cart
+  def cart 
+    self.object.cart.items
+  end
+
 end

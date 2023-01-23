@@ -28,6 +28,78 @@
   color: #61dafb;
 }
 
+.card-container {
+  vertical-align: top;
+  display: inline-grid;
+  margin-top: 20px;
+  margin-right: 5px;
+  margin-left: 45px;
+  
+}
+
+.card {
+  font-size: large;
+  font-style: italic;
+  font-family: Trattatello fantasy;
+  padding: 8px;
+  /* width:17rem; */
+  border-radius: 12px;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 250px;
+  /* height: 45em; */
+  /* color: white; */
+}
+
+.card-image {
+  /* height: 50%;
+  width: 50%; */
+  width: 150px;
+  border-radius: 12px;
+  height: auto;
+    /* -webkit-transition: -webkit-transform 1s;  */
+}
+.nav-link {
+  font-size: larger;
+  word-spacing: 200px;
+  text-decoration: none;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.navbar {
+  word-spacing: 200px;
+}
+
+.nav-cart {
+  font-size: larger;
+  text-decoration: none;
+  /* text-align: right; */
+  justify-content: right;
+}
+
+.cart {
+
+}
+
+.cart-image {
+  width: 150px;
+  border-radius: 12px;
+  height: auto;
+}
+/* how do I remove line under navlinks?
+   how do I space the words out?
+
+*/
+
+
+
+
+
+
+
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

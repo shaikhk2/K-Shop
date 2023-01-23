@@ -1,25 +1,28 @@
 import {useState } from 'react';
 
-function CartContainer( { cart } ) {
+function CartContainer( { cart, handleDelete } ) {
         console.log(cart)
-        const itemFunc = (item) => {
-            return (
-                <div>
-                    <img src={item.image} alt="product"/>
-                    <p>{item.name}</p>
-                    <p>{item.price}</p>
-                    <p>{item.description}</p>
-                </div>
-            )
-        }
-        const handleCartRender = cart.map(item => 
-            <p>{itemFunc(item.item)}</p>
-        )
+
+    
+    const itemFunc = (cartitem) => {
+        const { item } = cartitem
         return (
-            <div>
-                <p> {handleCartRender}</p>
+            <div className='cart'>
+                <img className='cart-image' src={item.image} alt="product"/>
+                <p>{item.name}</p>
+                <p>{item.price}</p>
+                <p>{item.description}</p>
+                <button onClick={ () => handleDelete(cartitem) }> Delete item </button>
             </div>
         )
     }
-    
-    export default CartContainer;
+    const handleCartRender = cart.map(cartitem => 
+        <p> {itemFunc(cartitem)} </p>
+    )
+    return (
+        <div>
+            <p> { handleCartRender } </p>
+        </div>
+    )
+}
+export default CartContainer;
