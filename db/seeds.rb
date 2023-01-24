@@ -67,54 +67,158 @@ gown = Category.create( name: "Gown" )
 puts "Creating Items..."
 #dress
 item1 = Item.create( 
-    name: "Red Polka Dot Dress", 
+    name: "Polka Dot Dress", 
     price: "20.99", 
-    color: "red",
+    color: "Red",
     size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
     category: dress,
-    description: "A beautiful casual red dress with polka dots. The dress is knee length with short sleeves and a belt to tie to the side. ", 
+    description: "A beautiful knee length casual red dress with polka dots, short sleeves, and a belt to the side.", 
     image: "https://m.media-amazon.com/images/I/71INse-VRLS._MCnd_AC_SR175,263_QL70_.jpg" 
     )
 
 item2 = Item.create( 
-    name: "Ball Gown", 
-    price: "200.00", 
-    color: "",
+    name: "V-Neck Dress", 
+    price: "39.00", 
+    color: "Black",
     size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
-    category: gown,
-    description: "A beautiful Ball Gown dress", 
-    image: "https://www.thecelebritydresses.com/media/catalog/product/cache/1/image/650x/040ec09b1e35df139433887a97daa66f/s/i/simple_backless_a-line_dress_2_.jpg" 
+    category: dress,
+    description: "A gorgeous deep V-Neck Mini Swing Skater Dresses with Long Sleeves and a Waist Tie Ruffle.", 
+    image: "https://m.media-amazon.com/images/I/51YGdPjQZCL._AC_UX679_.jpg" 
     )
 
 item3 = Item.create( 
-    name: "Strapless", 
-    price: "50.00", 
-    color: "",
+    name: "Velvet Mini Dress", 
+    price: "44.99", 
+    color: "Green",
     size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
-    category: shirt, 
-    description: "A beautiful Strapless dress", 
-    image: "https://www.thecelebritydresses.com/media/catalog/product/cache/1/image/650x/040ec09b1e35df139433887a97daa66f/s/i/simple_backless_a-line_dress_2_.jpg" 
+    category: dress, 
+    description: " A beautiful Semi Formal Velvet Mini Dress with Long Sleeves and a Waist Tie.",
+    image: "https://m.media-amazon.com/images/I/71uKhTq6cFL._AC_SY879._SX._UX._SY._UY_.jpg" 
     )
 
 item4 = Item.create( 
-    name: "Apron Dress", 
-    price: "35.00", 
-    color: "",
+    name: "Floral Dress", 
+    price: "34.91", 
+    color: "Navy Blue",
     size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
-    category: pant, 
-    description: "A beautiful Apron dress", 
-    image: "https://www.thecelebritydresses.com/media/catalog/product/cache/1/image/650x/040ec09b1e35df139433887a97daa66f/s/i/simple_backless_a-line_dress_2_.jpg"
+    category: dress, 
+    description: "A Vintage Floral Flared A-Line Swing Casual Party Dresses with Side Pockets.", 
+    image: "https://m.media-amazon.com/images/I/61qVFu6xWCL._AC_SY879._SX._UX._SY._UY_.jpg"
     )
 
 item5 = Item.create( 
-    name: "Sundress", 
-    price: "25.00", 
-    color: "",
+    name: "Mini Sweater Dress", 
+    price: "46.99", 
+    color: "Purple",
     size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
-    category: suit, 
-    description: "A beautiful Sundress dress", 
-    image: "https://www.thecelebritydresses.com/media/catalog/product/cache/1/image/650x/040ec09b1e35df139433887a97daa66f/s/i/simple_backless_a-line_dress_2_.jpg"
+    category: dress, 
+    description: "A warm Turtleneck Soft Knit Mini Sweater Dress with Long Sleeves.", 
+    image: "https://m.media-amazon.com/images/I/81Kv85weCeL._AC_SY879._SX._UX._SY._UY_.jpg"
     )
+
+#gowns
+item6 = Item.create( 
+    name: "Sequined Gown", 
+    price: "88.89", 
+    color: "Navy Blue",
+    size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+    category: gown, 
+    description: "A Long and Elegant Gold Evening Gown with Long Sleeves, Sequins, and Glitter Fabric.", 
+    image: "https://slimages.macysassets.com/is/image/MCY/products/8/optimized/23087978_fpx.tif?op_sharpen=1&wid=700&hei=855&fit=fit,1&fmt=webp"
+    )
+#change bc of background
+item7 = Item.create( 
+    name: "Strapless Ball Gown", 
+    price: "340.00", 
+    color: "Black",
+    size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+    category: gown, 
+    description: "A beautiful Floor-length formal dress with a skirt that flares from the waist.", 
+    image: "https://slimages.macysassets.com/is/image/MCY/products/5/optimized/18662925_fpx.tif?op_sharpen=1&wid=700&hei=855&fit=fit,1&fmt=webp"
+    )
+
+item8 = Item.create( 
+    name: "Pleated Ruffled Gown", 
+    price: "249.00", 
+    color: "Emerald",
+    size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+    category: gown, 
+    description: "A Stunning Evening Gown with three-quarter-length sleeves and an elegant waterfall ruffle.", 
+    image: "https://slimages.macysassets.com/is/image/MCY/products/8/optimized/19626068_fpx.tif?op_sharpen=1&wid=700&hei=855&fit=fit,1&fmt=webp"
+    )
+#maybe change bc of background
+item9 = Item.create( 
+    name: "V-Neck Satin Gown", 
+    price: "46.99", 
+    color: "Blue",
+    size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+    category: gown, 
+    description: "A beautiful V-Neck Satin Gown with a leg slit and Adjustable Straps.", 
+    image: "https://slimages.macysassets.com/is/image/MCY/products/4/optimized/16469824_fpx.tif?op_sharpen=1&wid=700&hei=855&fit=fit,1&fmt=webp"
+    )
+
+item10 = Item.create( 
+    name: "Flutter Sleeve Gown", 
+    price: "369.00", 
+    color: "Purple",
+    size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+    category: gown, 
+    description: "A stunning Round Illusion neckline Gown with Flutter Sleeves and A Back Zipper.", 
+    image: "https://slimages.macysassets.com/is/image/MCY/products/7/optimized/22778967_fpx.tif?op_sharpen=1&wid=700&hei=855&fit=fit,1&fmt=webp"
+    )
+
+#shirts
+item11 = Item.create( 
+    name: "Polka Dot Blouse", 
+    price: "41.40", 
+    color: "White",
+    size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+    category: shirt,
+    description: "A Formal Polka Dot Buttoned Blouse with a Bow and a Collared Neckline", 
+    image: "https://slimages.macysassets.com/is/image/MCY/products/0/optimized/22325750_fpx.tif?op_sharpen=1&wid=700&hei=855&fit=fit,1&fmt=webp" 
+    )
+#change bc of background
+item12 = Item.create( 
+    name: "Tie-Neck Georgette Shirt", 
+    price: "48.53", 
+    color: "Multi",
+    size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+    category: shirt,
+    description: "A dramatic tie-neck Buttoned Blouse with Long and Pleated Sleeves.", 
+    image: "https://slimages.macysassets.com/is/image/MCY/products/3/optimized/22771823_fpx.tif?op_sharpen=1&wid=700&hei=855&fit=fit,1&fmt=webp" 
+    )
+
+item13 = Item.create( 
+    name: "Long Sleeve Shirt", 
+    price: "26.99", 
+    color: "Red",
+    size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+    category: shirt,
+    description: "A beautiful casual Square Necked Top with Polka Dotted Mesh Long Sleeves.", 
+    image: "https://m.media-amazon.com/images/I/61A0PmSpRLL._AC_SY879._SX._UX._SY._UY_.jpg" 
+    )
+
+item14 = Item.create( 
+    name: "Peplum Shirt", 
+    price: "39.00", 
+    color: "Orange",
+    size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+    category: shirt,
+    description: "A casual V-Neck shirt made with Peplum, with Puffy Long sleeves and Pleated Ruffle Hem.", 
+    image: "https://m.media-amazon.com/images/I/711fN7wOY+L._AC_SY879._SX._UX._SY._UY_.jpg" 
+    )
+
+item15 = Item.create( 
+    name: "V-Neck Shirt", 
+    price: "27.99", 
+    color: "Blue",
+    size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+    category: shirt,
+    description: "A beautiful V-Neck Cropped Shirt with Elastic Cuffed Long Sleeves and a Self Tie Knot.", 
+    image: "https://m.media-amazon.com/images/I/811n4EmcjTL._AC_UY879_.jpg" 
+    )
+
+
 
 
 puts "Creating CartItems..."

@@ -1,10 +1,11 @@
+import { GiShoppingCart } from 'react-icons/gi';
 import { NavLink, Link } from "react-router-dom";
 function Header( { onLogin } ) {
     
     return (
         <div>
-            {/* <img src="logo.png" alt="logo"></img> */}
-            <h1> K-Shop</h1>
+            <img className="logo" src="kshop.png" alt="logo"></img>
+            {/* <h1> K-Shop</h1> */}
             <br />
             <div className="navbar" >
                 <NavLink className="nav-link" to="/">
@@ -18,7 +19,7 @@ function Header( { onLogin } ) {
                 </NavLink>
             </div>
             <div>
-                <Link className="nav-cart" to={'/carts'}> Cart </Link>
+                <Link to={'/carts'}> < GiShoppingCart className='nav-cart'/> </Link>
             </div>
         </div>
     )

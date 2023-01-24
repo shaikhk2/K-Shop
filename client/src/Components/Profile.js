@@ -61,7 +61,7 @@ const handleSubmit = (e) => {
                 <p><strong> Email: </strong> { currentUser.email } </p>
                 <p> <strong> Address: </strong> { currentUser.address } </p>
                 <p> <strong> Phone Number: </strong> { currentUser.phone } </p>
-                <button onClick={ handleClick }> Edit my profile </button>
+                <button className="card-button" onClick={ handleClick }> <strong>Edit My Profile</strong> </button>
             </div>
             { !click ? 
             <div className="update-form">
@@ -106,7 +106,7 @@ const handleSubmit = (e) => {
                         onChange={ handleChange }
                     />
                     <br />
-                    <button type="submit"> Save </button>
+                    <button className='card-button' type="submit"><strong> Save </strong> </button>
                 </form>
             </div>
             : null }

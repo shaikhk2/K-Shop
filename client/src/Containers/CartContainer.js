@@ -7,12 +7,14 @@ function CartContainer( { cart, handleDelete } ) {
     const itemFunc = (cartitem) => {
         const { item } = cartitem
         return (
-            <div className='cart'>
-                <img className='cart-image' src={item.image} alt="product"/>
-                <p>{item.name}</p>
-                <p>{item.price}</p>
-                <p>{item.description}</p>
-                <button onClick={ () => handleDelete(cartitem) }> Delete item </button>
+            <div className='cart-container'>
+                <div className='cart-card'>
+                    <img className='cart-image' src={item.image} alt="product"/>
+                    <p><strong>{item.name}</strong></p>
+                    <p> ${item.price}</p>
+                    <p>{item.description}</p>
+                    <button className="card-button"onClick={ () => handleDelete(cartitem) }> Remove from Cart </button>
+                </div>
             </div>
         )
     }
