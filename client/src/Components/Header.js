@@ -8,18 +8,16 @@ function Header( { onLogin } ) {
             {/* <h1> K-Shop</h1> */}
             <br />
             <div className="navbar" >
-                <NavLink className="nav-link" to="/">
+                {/* <NavLink className="nav-link" to="/">
+                    Home 
+                </NavLink> */}
+                <NavLink className="nav-link" to="/items">
                     Home 
                 </NavLink>
-                <NavLink className="nav-link" to="/items">
-                    All 
-                </NavLink>
                 <NavLink className="nav-link" to="/profile">
-                    Me 
+                    Account 
                 </NavLink>
-            </div>
-            <div>
-                <Link to={'/carts'}> < GiShoppingCart className='nav-cart'/> </Link>
+                <Link className='nav-cart' to={'/carts'}> < GiShoppingCart size={45} /> </Link>
             </div>
         </div>
     )

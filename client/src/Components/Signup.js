@@ -44,64 +44,79 @@ function Signup( { setCurrentUser } ) {
     return (
     <>
         <h2>Signup</h2>
-        <form className='Signup' onSubmit={ handleSubmit }>
-        <label htmlFor="name">Name:</label>
-        <input
-            id="signup-name"
-            type="text"
-            name="name"
-            value={ formData.name }
-            onChange={ handleChange }
-        />
-        <br />
-        <label htmlFor="username">Username:</label>
-        <input
-            id="signup-username"
-            type="text"
-            name="username"
-            value={ formData.username }
-            onChange={ handleChange }
-        />
-
-        <br />
-        <label htmlFor="password">Password:</label>
-        <input
-            id="signup-password"
-            type="text"
-            name="password"
-            value={ formData.password }
-            onChange={ handleChange }
-        />
-        <br />
-        <label htmlFor="email">Email:</label>
-        <input
-            id="signup-email"
-            type="text"
-            name="email"
-            value={ formData.email }
-            onChange={ handleChange }
-        />
-        <br />
-        <label htmlFor="address">Address:</label>
-        <input
-            id="signup-address"
-            type="text"
-            name="address"
-            value={ formData.address }
-            onChange={ handleChange }
-        />
-        <br />
-        <label htmlFor="phone">Phone-Number:</label>
-        <input
-            id="phone-signup-input"
-            type="text"
-            name="phone"
-            value={ formData.phone }
-            onChange={ handleChange }
-        />
-        <br />
-        <button type="submit"> Submit </button>
-        </form>
+        <div className='signup-form-container'>
+            <div className='signup-form-card'>
+                <form className='Signup' onSubmit={ handleSubmit }>
+                    <label htmlFor="name">Name:</label>
+                    <br />
+                    <input
+                        id="signup-name"
+                        type="text"
+                        name="name"
+                        value={ formData.name }
+                        onChange={ handleChange }
+                    />
+                    <br />
+                    <br />
+                    <label htmlFor="username">Username:</label>
+                    <br />
+                    <input
+                        id="signup-username"
+                        type="text"
+                        name="username"
+                        value={ formData.username }
+                        onChange={ handleChange }
+                    />
+                    <br />
+                    <br />
+                    <label htmlFor="password">Password:</label>
+                    <br />
+                    <input
+                        id="signup-password"
+                        type="text"
+                        name="password"
+                        value={ formData.password }
+                        onChange={ handleChange }
+                    />
+                    <br />
+                    <br />
+                    <label htmlFor="email">Email:</label>
+                    <br />
+                    <input
+                        id="signup-email"
+                        type="text"
+                        name="email"
+                        value={ formData.email }
+                        onChange={ handleChange }
+                    />
+                    <br />
+                    <br />
+                    <label htmlFor="address">Address:</label>
+                    <br />
+                    <input
+                        id="signup-address"
+                        type="text"
+                        name="address"
+                        value={ formData.address }
+                        onChange={ handleChange }
+                    />
+                    <br />
+                    <br />
+                    <label htmlFor="phone">Phone-Number:</label>
+                    <br />
+                    <input
+                        id="phone-signup-input"
+                        type="text"
+                        name="phone"
+                        value={ formData.phone }
+                        onChange={ handleChange }
+                    />
+                    <br />
+                    <br />
+                    <button className='card-button' type="submit"> Sign Up </button>
+                </form>
+             </div>
+        </div>
     </>
     );
 }

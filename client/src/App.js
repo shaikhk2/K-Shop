@@ -76,28 +76,30 @@ function App() {
       setCart(newCartItems);
     })
   }
+  //to logout, delete cookies and set currentUser to null
+
+  //
 
   return (
     <div className="App">
       <Header onLogin={handleLogin} setCurrentUser={setCurrentUser} />
       { !currentUser ? 
       <>
-      <Login onLogin={handleLogin} setCurrentUser={setCurrentUser} error={'Please login'} />
-      <br/><br/>
-      <Signup currentUser={currentUser} setCurrentUser={setCurrentUser}  error={'Please login'} />
+      <Switch>
+        <Route path="/login">
+          <Login onLogin={handleLogin} setCurrentUser={setCurrentUser} error={'Please login'} />
+        </Route>
+        <Route path="/signup">
+          <Signup currentUser={currentUser} setCurrentUser={setCurrentUser}  error={'Please login'} />
+        </Route>
+      </Switch>
       </>
       : 
       <Switch>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/signup">
-          <Signup />
-        </Route>
-        <Route exact path="/">
+        {/* <Route exact path="/">
           <Home />
-        </Route>
-        <Route path="/items">
+        </Route> */}
+        <Route exact path="/items">
           <ItemContainer  user={currentUser} items={ items } AddToCart={ AddToCart } />
         </Route>
         <Route path="/item/:id">

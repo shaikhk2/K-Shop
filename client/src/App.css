@@ -93,15 +93,55 @@ html {
   /* background-color: rgb(252, 227, 248); */
   background-color: white;
 }
+.profile-container {
+  vertical-align: top;
+  display: inline-grid;
+  margin-top: 20px;
+  margin-right: 100px;
+  margin-left: 100px;
+}
+.profile-card {
+  flex-direction: column;
+  width: 270px;
+  height: 300px;
+  /* border: 1px solid rgb(198, 198, 198); */
+
+}
+.profile-p {
+  text-align: left;
+  
+}
 .card-button {
   background-color: rgb(229, 0, 114);
   height: 30px;
   color: white;
   border: white;
+  border-radius: 8px;
+  /* text-align: center; */
+  justify-content: center;
 }
-/* p {
-  line-height: 20px;
-} */
+.card-button:hover {
+  opacity: 1;
+  color: black;
+}
+.card-button:active {
+  transform: translateY(4px)
+}
+.category-button {
+  background-color: white;
+  color: black;
+  border: none;
+  /* text-align: center; */
+  /* opacity: 0.6; */
+  transition: 0.3s;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.category-button:hover {
+  /* box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); */
+  opacity: 1;
+  color: rgb(229, 0, 114);
+}
 .nav-link {
   font-size: larger;
   word-spacing: 200px;
@@ -111,32 +151,63 @@ html {
   color: rgb(229, 0, 114);
 }
 
+.nav-link:hover {
+  opacity: 1;
+  color: black;
+}
+
 .navbar {
   word-spacing: 200px;
 }
 
 .nav-cart {
-  font-size: larger;
+  /* font-size: larger; */
   text-decoration: none;
   color: rgb(229, 0, 114);
-  margin-left: 95%;
-  size: 70px;
+  margin-left: 35%;
+  position:absolute; 
 }
-
-/* .cart {
-
-} */
+.nav-cart:hover {
+  opacity: 1;
+  color: black;
+}
 
 .cart-image {
   width: 150px;
   border-radius: 12px;
   height: auto;
 }
-/* how do I remove line under navlinks?
-   how do I space the words out?
 
-*/
+.form-container {
+  text-align: left;
+  /* vertical-align: top; */
+  display: inline-grid;
+  /* margin-top: 20px; */
+  /* margin-right: 100px; */
+  /* margin-left: 100px; */
 
+}
+
+.form-card {
+  flex-direction: column;
+  width: 300px;
+  height: 400px;
+  /* border: 1px solid rgb(198, 198, 198); */
+}
+
+.signup-form-container {
+  display: inline-grid;
+  /* text-align: left; */
+}
+
+.signup-form-card {
+  /* text-align: left; */
+  flex-direction: column;
+  width: 250px;
+  height: 300px;
+  /* border: 1px solid rgb(198, 198, 198); */
+
+}
 
 
 

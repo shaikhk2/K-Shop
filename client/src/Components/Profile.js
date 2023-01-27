@@ -19,6 +19,7 @@ const handleChange = (e) => {
         ...newFormData,
         [e.target.id]: e.target.value,
     });
+    console.log(e.target.value)
 }
 
 const handleClick = () => {
@@ -54,60 +55,75 @@ const handleSubmit = (e) => {
 
     return (
         <div>
-            <div className="profile">
+            <div className="profile-container">
                 <h2> My Profile </h2>
-                <p> <strong> Name: </strong> { currentUser.name } </p>
-                <p> <strong> Username: </strong>{ currentUser.username } </p>
-                <p><strong> Email: </strong> { currentUser.email } </p>
-                <p> <strong> Address: </strong> { currentUser.address } </p>
-                <p> <strong> Phone Number: </strong> { currentUser.phone } </p>
-                <button className="card-button" onClick={ handleClick }> <strong>Edit My Profile</strong> </button>
+                <div className="profile-card">
+                    <p className='profile-p'> <strong> Name: </strong> { currentUser.name } </p>
+                    <p className='profile-p'> <strong> Username: </strong> { currentUser.username } </p>
+                    <p className='profile-p'><strong> Email: </strong> { currentUser.email } </p>
+                    <p className='profile-p'> <strong> Address: </strong> { currentUser.address } </p>
+                    <p className='profile-p'> <strong> Phone Number: </strong> { currentUser.phone } </p>
+                    < br />
+                    <button className="card-button" onClick={ handleClick }> <strong> Edit My Profile </strong> </button>
+                </div>
             </div>
             { !click ? 
-            <div className="update-form">
-                <form onSubmit={ handleSubmit } >
-                    <label htmlFor="name"> Name: </label>
-                    <input
-                        type="text"
-                        id="name"
-                        value={ name }
-                        onChange={ handleChange }
-                    />
-                    <br />
-                    <label htmlFor="username"> Username: </label>
-                    <input
-                        type="text"
-                        id="username"
-                        value={ username }
-                        onChange={ handleChange }
-                    />
-                    <br />
-                    <label htmlFor="email"> Email: </label>
-                    <input
-                        type="text"
-                        id="email"
-                        value={ email }
-                        onChange={ handleChange }
-                    />
-                    <br />
-                    <label htmlFor="address"> Address: </label>
-                    <input
-                        type="text"
-                        id="address"
-                        value={ address }
-                        onChange={ handleChange }
-                    />
-                    <br />
-                    <label htmlFor="number"> Phone Number: </label>
-                    <input
-                        type="text"
-                        id="number"
-                        value={ phone }
-                        onChange={ handleChange }
-                    />
-                    <br />
-                    <button className='card-button' type="submit"><strong> Save </strong> </button>
-                </form>
+            <div className="form-container">
+                <div className='form-card'>
+                    <form onSubmit={ handleSubmit } >
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <label htmlFor="name"> <strong>Name:</strong> </label>
+                        <input
+                            type="text"
+                            id="name"
+                            value={ name }
+                            onChange={ handleChange }
+                        />
+                        <br />
+                        <br />
+                        <label htmlFor="username"> <strong>Username:</strong> </label>
+                        <input
+                            type="text"
+                            id="username"
+                            value={ username }
+                            onChange={ handleChange }
+                        />
+                        <br />
+                        <br />
+                        <label htmlFor="email"> <strong>Email:</strong> </label>
+                        <input
+                            type="text"
+                            id="email"
+                            value={ email }
+                            onChange={ handleChange }
+                        />
+                        <br />
+                        <br />
+                        <label htmlFor="address"> <strong>Address:</strong> </label>
+                        <input
+                            type="text"
+                            id="address"
+                            value={ address }
+                            onChange={ handleChange }
+                        />
+                        <br />
+                        <br />
+                        <label htmlFor="phone"> <strong>Phone Number:</strong> </label>
+                        <input
+                            type="text"
+                            id="phone"
+                            value={ phone }
+                            onChange={ handleChange }
+                        />
+                        <br />
+                        <br />
+                        <button className='card-button' type="submit"><strong> Save </strong> </button>
+                    </form>
+                </div>
             </div>
             : null }
         </div>

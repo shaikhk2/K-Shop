@@ -13,7 +13,7 @@ function CartContainer( { cart, handleDelete } ) {
                     <p><strong>{item.name}</strong></p>
                     <p> ${item.price}</p>
                     <p>{item.description}</p>
-                    <button className="card-button"onClick={ () => handleDelete(cartitem) }> Remove from Cart </button>
+                    <button className="card-button"onClick={ () => handleDelete(cartitem) }> <strong>Remove from Cart</strong> </button>
                 </div>
             </div>
         )

@@ -19,10 +19,11 @@ class UsersController < ApplicationController
     end
 
     def update
-        updated_user = User.find_by( id: params[:id])
         # byebug
+        updated_user = User.find_by( id: params[:id])
+        # byebug 
         if updated_user
-            updated_user.update( user_params )
+            updated_user.update( id: params[:id], name: params[:name], username: params[:username], email: params[:email], address: params[:address], phone: params[:phone] )
             if updated_user.valid?
                 render json: updated_user
             else 
@@ -41,7 +42,7 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.permit( :name, :username, :email, :address, :phone )
+        params.permit( :id, :user_id, :name, :username, :password, :email, :address, :phone )
     end
     # def cart_params
     #     params.permit( :name, user_id )

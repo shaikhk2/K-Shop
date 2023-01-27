@@ -46,7 +46,8 @@ function Login( { onLogin, setCurrentUser } ) {
         <div>
             <h2> Login </h2>
             <form className='login-form' onSubmit={ handleSubmit }>
-            <label htmlFor="username">Username: </label>
+              <label htmlFor="username">Username: </label>
+              <br />
               <input
                 type="text"
                 id="username"
@@ -54,7 +55,9 @@ function Login( { onLogin, setCurrentUser } ) {
                 onChange={ handleChange }
               />
               <br />
+              <br />
               <label htmlFor="password">Password: </label>
+              <br />
               <input
                 type="text"
                 id="password"
@@ -62,7 +65,8 @@ function Login( { onLogin, setCurrentUser } ) {
                 onChange={ handleChange }
               />
               <br />
-            <button type="submit"> Login </button>
+              <br />
+              <button className='card-button' type="submit"> Login </button>
             </form>
         </div>
     )
